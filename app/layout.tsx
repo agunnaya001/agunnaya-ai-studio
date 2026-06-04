@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
@@ -9,9 +9,17 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: '#1a1f2e',
+}
+
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Agunnaya AI Studio - Web3 AI Native Platform',
+  description: 'AI-native Web3 platform for code generation, AI chat, and blockchain integration',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -30,6 +38,8 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
+  keywords: ['AI', 'Web3', 'Code Generation', 'Chat', 'Blockchain', 'Studio'],
+  authors: [{ name: 'Agunnaya Team' }],
 }
 
 export default function RootLayout({
@@ -39,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased bg-slate-950 text-slate-50">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

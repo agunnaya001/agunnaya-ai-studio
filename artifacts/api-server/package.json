@@ -10,8 +10,12 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.67",
+    "@opentelemetry/api": "^1.9.1",
+    "@supabase/supabase-js": "^2.107.0",
     "@workspace/api-zod": "workspace:*",
     "@workspace/db": "workspace:*",
+    "ai": "^6.0.196",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "drizzle-orm": "catalog:",

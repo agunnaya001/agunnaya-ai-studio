@@ -6,3 +6,27 @@ id = "JmTI-dHgkfWA3Y3fuWy_T"
 uri = "file://artifacts/agunnaya-ai-mobile/assets/images/icon.png"
 type = "image"
 title = "agunnaya-ai-mobile-icon"
+
+[[generated]]
+id = "IK-ao_oayCBBZWCf-fPjv"
+uri = "file://attached_assets/branding/logo-square.png"
+type = "image"
+title = "agunnaya ai studio square logo"
+
+[[generated]]
+id = "hmAngGJR79jkw-sfgDGqP"
+uri = "file://attached_assets/branding/banner-hero.png"
+type = "image"
+title = "agunnaya readme hero banner"
+
+[[generated]]
+id = "ZgbbxzLJxwqqu-wiX2Xpv"
+uri = "file://attached_assets/branding/feature-preview.png"
+type = "image"
+title = "agunnaya feature preview card"
+
+[[generated]]
+id = "X_MhElI3x6pSy8vNZr14c"
+uri = "file://attached_assets/branding/agent-icons.png"
+type = "image"
+title = "agunnaya agent icon set"

@@ -38,3 +38,11 @@ externalPort = 3002
 [[ports]]
 localPort = 25975
 externalPort = 80
+
+[userenv]
+
+[userenv.shared]
+EXPO_PUBLIC_SUPABASE_URL = "https://idfppxmrgruyypbitupp.supabase.co"
+EXPO_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkZnBweG1yZ3J1eXlwYml0dXBwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODk5NjAsImV4cCI6MjA5NjE2NTk2MH0.Ki73QllcUKpJqE__ZTJbftB0RpOBKBoB5dLTjOM4WWY"
+VITE_SUPABASE_URL = "https://idfppxmrgruyypbitupp.supabase.co"
+VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkZnBweG1yZ3J1eXlwYml0dXBwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODk5NjAsImV4cCI6MjA5NjE2NTk2MH0.Ki73QllcUKpJqE__ZTJbftB0RpOBKBoB5dLTjOM4WWY"

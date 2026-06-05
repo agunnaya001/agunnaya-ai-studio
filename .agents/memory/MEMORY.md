@@ -1,3 +1,4 @@
 - [Vercel AI SDK peer dep](vercel-ai-sdk-peer-dep.md) — `ai` + `@ai-sdk/openai` require `@opentelemetry/api` installed explicitly in api-server.
 - [Mobile streaming chat](mobile-streaming-chat.md) — chat.ts uses `pipeTextStreamToResponse`; mobile reads with `response.body.getReader()` + TextDecoder chunks; import `expo/fetch` for native streaming on real devices.
 - [Supabase JWT verify pattern](supabase-jwt-verify.md) — api-server verifies mobile session via `supabase.auth.getUser(token)` using server-side VITE_SUPABASE_URL/ANON_KEY; token sent as `Authorization: Bearer <session.access_token>`.
+- [Dashboard multi-phase pages](dashboard-phases.md) — useDashboardUser + DashboardLayout pattern for all 13 dashboard routes (Phases 3-9).

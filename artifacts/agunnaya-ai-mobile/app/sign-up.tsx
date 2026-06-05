@@ -33,7 +33,8 @@ export default function SignUpScreen() {
     setLoading(true);
     setError(null);
     try {
-      const { error: authError } = await supabase.auth.signUp({ email, password });
+      const redirectUrl = "agunnaya-ai-mobile://auth/callback";
+      const { error: authError } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: redirectUrl } });
       if (authError) throw authError;
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       setSuccess(true);

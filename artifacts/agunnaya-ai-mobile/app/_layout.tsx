@@ -26,6 +26,7 @@ function RootLayoutNav() {
       <Stack.Screen name="index" />
       <Stack.Screen name="login" />
       <Stack.Screen name="sign-up" />
+      <Stack.Screen name="auth/callback" />
       <Stack.Screen name="(tabs)" />
     </Stack>
   );

@@ -1,20 +1,21 @@
-// Export your models here. Add one export per file
-// export * from "./posts";
-//
-// Each model/table should ideally be split into different files.
-// Each model/table should define a Drizzle table, insert schema, and types:
-//
-//   import { pgTable, text, serial } from "drizzle-orm/pg-core";
-//   import { createInsertSchema } from "drizzle-zod";
-//   import { z } from "zod/v4";
-//
-//   export const postsTable = pgTable("posts", {
-//     id: serial("id").primaryKey(),
-//     title: text("title").notNull(),
-//   });
-//
-//   export const insertPostSchema = createInsertSchema(postsTable).omit({ id: true });
-//   export type InsertPost = z.infer<typeof insertPostSchema>;
-//   export type Post = typeof postsTable.$inferSelect;
+import { pgTable, text, uuid, timestamp } from 'drizzle-orm/pg-core'
+import { createSelectSchema, createInsertSchema } from 'drizzle-zod'
+import { z } from 'zod/v4'
 
-export {}
+// Mirrors the public.profiles table created by supabase/migrations/001_profiles.sql
+// The `id` column is a foreign key to auth.users(id) — managed by Supabase Auth.
+export const profilesTable = pgTable('profiles', {
+  id:          uuid('id').primaryKey(),
+  email:       text('email'),
+  displayName: text('display_name'),
+  avatarUrl:   text('avatar_url'),
+  createdAt:   timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+  updatedAt:   timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+})
+
+export const selectProfileSchema = createSelectSchema(profilesTable)
+export const insertProfileSchema = createInsertSchema(profilesTable).omit({ createdAt: true, updatedAt: true })
+export const updateProfileSchema = insertProfileSchema.partial().omit({ id: true })
+
+export type Profile    = z.infer<typeof selectProfileSchema>
+export type NewProfile = z.infer<typeof insertProfileSchema>

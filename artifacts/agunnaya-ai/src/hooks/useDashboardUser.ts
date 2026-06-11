@@ -10,14 +10,31 @@ export function useDashboardUser() {
 
   useEffect(() => {
     const supabase = createClient()
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      if (!user) {
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
         navigate('/auth/login')
       } else {
-        setUser(user)
+        setUser(session.user)
       }
       setLoading(false)
     })
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        if (!session) {
+          navigate('/auth/login')
+          setUser(null)
+        } else {
+          setUser(session.user)
+        }
+        setLoading(false)
+      }
+    )
+
+    return () => {
+      subscription.unsubscribe()
+    }
   }, [navigate])
 
   return { user, loading }

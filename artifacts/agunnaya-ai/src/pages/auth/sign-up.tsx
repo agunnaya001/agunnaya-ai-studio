@@ -40,18 +40,23 @@ export default function SignUpPage() {
     }
 
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=/dashboard`,
           data: {
             display_name: displayName,
           },
         },
       })
       if (error) throw error
-      navigate('/auth/sign-up-success')
+      if (data.session) {
+        navigate('/dashboard')
+      } else {
+        sessionStorage.setItem('signup_email', email)
+        navigate('/auth/sign-up-success')
+      }
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : 'An error occurred')
     } finally {

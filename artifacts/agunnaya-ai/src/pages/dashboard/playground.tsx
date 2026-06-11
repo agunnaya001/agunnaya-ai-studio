@@ -4,6 +4,7 @@ import { DashboardLayout } from '@/components/dashboard-layout'
 import { useDashboardUser } from '@/hooks/useDashboardUser'
 import { createClient } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
+import { PreviewPanel } from '@/components/PreviewPanel'
 import { FilePlus, ChevronRight, Download, Play, Sparkles, FileCode, X, ChevronDown } from 'lucide-react'
 
 const TEMPLATES: Record<string, { name: string; lang: string; code: string }> = {
